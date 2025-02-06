@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism Login Form | CodingNepal</title>
+  <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+<body>
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="{% static 'providing.MP4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="wrapper">
+    <form action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      <h2>Login</h2>
+      
+      <!-- Display messages if they exist -->
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <p class="error">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="input-field">
+        <input type="text" name="email" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" name="password" required>
+        <label>Enter your password</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit">Log In</button>
+      <div class="register">
+        <p>Don't have an account? <a href="#">Register</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

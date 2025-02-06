@@ -1,0 +1,55 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism Sign Up Form</title>
+  <link rel="stylesheet" href="{% static "signup.css" %}">
+</head>
+<body>
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="{% static "providing.MP4" %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="wrapper">
+    <form method="POST" action="{% url "signup" %}">
+      {% csrf_token %}
+      <h2>Sign Up</h2>
+      <div class="input-field">
+        <input type="text" id="name" name="name" required>
+        <label>Enter your username</label>
+      </div>
+      <div class="input-field">
+        <input type="email" id="email" name="email" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="text" id="Youtube" name="youtube" required>
+        <label>Enter Youtube Homepage Link</label>
+      </div>
+      <div class="input-field">
+        <input type="text" id="twitter" name="twitter" required>
+        <label>Enter Twitter Profile Link</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" name="password" required>
+        <label>Enter your password</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" name="confirm_password" required>
+        <label>Confirm your password</label>
+      </div>
+      <button type="submit">Sign Up</button>
+      <div class="login-link">
+        <p>Already have an account? <a href="#">Log In</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
